@@ -93,7 +93,7 @@ function Chatbot() {
               scrollBehavior="smooth"
               typingIndicator={
                 isTyping ? (
-                  <TypingIndicator content="Chatbot is typing..." />
+                  <TypingIndicator content="Navigator is typing..." />
                 ) : null
               }
             >
