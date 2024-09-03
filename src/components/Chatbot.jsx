@@ -31,11 +31,11 @@ function Chatbot() {
   ]);
 
   const [isTyping, setIsTyping] = useState(false);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // Track which question is being asked
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const questions = [
     "Do you need help navigating a tricky situation?",
     "Where did this situation take place?",
-    "Hello",
+    "do you need any help",
     // Add more questions
   ];
   const handleSend = async (message) => {
@@ -89,14 +89,14 @@ function Chatbot() {
 
   return (
     <div className="App">
-      <div style={{ position: "relative", height: "500px", width: "700px" }}>
-        <h2 className="text-black font-bold p-1 text-center">
+      <div style={{ position: "relative", height: "450px", width: "700px" }}>
+        <h2 className="text-black font-bold p-1 ">
           Hi there! Welcome to Social Navigator
         </h2>
-        <p className="text-black p-1 text-center">
+        <p className="text-black p-1 ">
           Need help navigating a tricky situation? Share your story with us.{" "}
           <br></br>
-          We're here to listen, understand and off insights
+          We're here to listen, understand and off insights.
         </p>
         <MainContainer>
           <ChatContainer>
