@@ -19,11 +19,13 @@ const systemMessage = {
 function Chatbot() {
   const [messages, setMessages] = useState([
     {
-      message: "Hi there! Welcome to Social Navigator.",
+      message:
+        "Ready to share your story? Feel free to describe any situation that's on your mind.",
       sender: "Chatbot",
     },
     {
-      message: "Do you need help navigating a tricky situation?",
+      message:
+        "if you need help framing your situation, just click 'Need Guidance' or you can start tying whenever you're ready",
       sender: "Chatbot",
     },
   ]);
@@ -33,6 +35,7 @@ function Chatbot() {
   const questions = [
     "Do you need help navigating a tricky situation?",
     "Where did this situation take place?",
+    "Hello",
     // Add more questions
   ];
   const handleSend = async (message) => {
@@ -87,6 +90,14 @@ function Chatbot() {
   return (
     <div className="App">
       <div style={{ position: "relative", height: "500px", width: "700px" }}>
+        <h2 className="text-black font-bold p-1 text-center">
+          Hi there! Welcome to Social Navigator
+        </h2>
+        <p className="text-black p-1 text-center">
+          Need help navigating a tricky situation? Share your story with us.{" "}
+          <br></br>
+          We're here to listen, understand and off insights
+        </p>
         <MainContainer>
           <ChatContainer>
             <MessageList
