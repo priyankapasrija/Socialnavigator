@@ -1,13 +1,19 @@
-import Chatbot from "./components/Chatbot";
-import Navbar from "./components/Nav";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import StorySubmission from './pages/StorySubmission';
+import NewStoryAlert from './pages/NewStoryAlert';
 
-const App = () => {
+
+function App() {
   return (
-    <>
-      <Navbar />
-      <Chatbot />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/story-submission" element={<StorySubmission />} />
+        <Route path="/new-story-alert" element={<NewStoryAlert />} />
+      </Routes>
+    </Router>
   );
-};
+}
 
 export default App;
