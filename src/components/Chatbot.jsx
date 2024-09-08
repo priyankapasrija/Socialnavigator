@@ -11,6 +11,7 @@ import {
 } from '@chatscope/chat-ui-kit-react';
 import { fetchSimulatedReview } from '../api/api.js';
 import chatFlow from '../data/chatFlowData'; 
+import ReviewingScreen from './ReviewingScreen.jsx';
 
 function Chatbot() {
   const [messages, setMessages] = useState([
@@ -20,6 +21,7 @@ function Chatbot() {
   ]);
   const [isTyping, setIsTyping] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
+  const [isReviewing, setIsReviewing] = useState(false);
   const navigate = useNavigate();
 
   const handleSend = async (message) => {
@@ -34,27 +36,42 @@ function Chatbot() {
     setMessages((prevMessages) => [...prevMessages, newMessage]);
     setIsTyping(true);
 
-    setTimeout(async () => {
-      if (message === 'Submit your story') {
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { message: 'We’re Reviewing Your Story. Thanks for sharing! We \'re taking a moment to review your input and generate useful insights.', sender: 'Chatbot' , position:'single' },
-        ]);
+    if (message === 'Submit your story') {
+      setIsReviewing(true); 
+
+
+      setTimeout(async () => {
         try {
           const review = await fetchSimulatedReview();
+          setIsReviewing(false); 
+
+          const combinedReviewMessage = `
+            *Review Summary*:
+            ${review.summary}
+            
+            *How the Situation Felt*:
+            ${review.feelings}
+            
+            **Miscommunications**:
+            ${review.miscommunications[0].title}
+            ${review.miscommunications[0].points.join('\n')}
+            
+            **Suggestions**:
+            ${review.suggestions.join(', ')}
+            
+            **Insights**:
+            ${review.insights.map((insight) => `${insight.title}: ${insight.description}`).join('\n')}
+          `;
+
           setMessages((prevMessages) => [
             ...prevMessages,
             { message: 'The review is complete', sender: 'Chatbot' },
-            { message: review.summary, sender: 'Chatbot', position:'single' },
-            { message: review.feelings, sender: 'Chatbot' },
-            { message: review.miscommunications[0].title, sender: 'Chatbot' },
-            ...review.miscommunications[0].points.map((point) => ({ message: point, sender: 'Chatbot' })),
-            { message: review.suggestions.join(' '), sender: 'Chatbot' },
-            ...review.insights.map((insight) => ({ message: `${insight.title}: ${insight.description}`, sender: 'Chatbot' })),
+            { message: combinedReviewMessage, sender: 'Chatbot', position: 'single' },
           ]);
-          
+
           setCurrentStep((prevStep) => prevStep + 1);
         } catch (error) {
+          setIsReviewing(false); 
           setMessages((prevMessages) => [
             ...prevMessages,
             { message: 'There was an error fetching your review. Please try again later.', sender: 'Chatbot' },
@@ -62,29 +79,28 @@ function Chatbot() {
         } finally {
           setIsTyping(false);
         }
-        return;
-      }
+      }, 3000); 
 
-      if (currentStep < chatFlow.length - 1) {
-        const nextStep = chatFlow[currentStep + 1];
+      return; 
+    }
 
-       
-        if (nextStep.options.length > 0) {
-          setMessages((prevMessages) => [
-            ...prevMessages,
-            { message: nextStep.message, sender: 'Chatbot' },
-          ]);
-        } else {
-        
-          setMessages((prevMessages) => [
-            ...prevMessages,
-            { message: nextStep.message, sender: 'Chatbot' },
-          ]);
-        }
-        setCurrentStep((prevStep) => prevStep + 1);
-        setIsTyping(false);
+    if (currentStep < chatFlow.length - 1) {
+      const nextStep = chatFlow[currentStep + 1];
+
+      if (nextStep.options.length > 0) {
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { message: nextStep.message, sender: 'Chatbot' },
+        ]);
+      } else {
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { message: nextStep.message, sender: 'Chatbot' },
+        ]);
       }
-    }, 1000);
+      setCurrentStep((prevStep) => prevStep + 1);
+      setIsTyping(false);
+    }
   };
 
   const handleOptionClick = (option) => {
@@ -95,32 +111,42 @@ function Chatbot() {
     }
   };
 
+
+  if (isReviewing) {
+    return <ReviewingScreen />;
+  }
+
+
   return (
-    <div className='flex items-center justify-center h-[80vh] w-[80vw] mx-auto my-auto'>
-    <MainContainer>
+    <div className='flex items-center justify-center h-[60vh] w-[60vw] mx-auto my-auto'>
+    <MainContainer className='border-none text-black'>
       <ChatContainer>
         <MessageList
           scrollBehavior="auto"
-          /*typingIndicator={isTyping ? <TypingIndicator content="Navigator is typing..." style={{ backgroundColor:'white', fontSize:'12px', margin:'-10px'}}/> : <TypingIndicator content="User is typing..." style={{ backgroundColor:'white', fontSize:'12px', padding:'0'}} /> }*/
+          typingIndicator={isTyping ? <div style={{color:'#151B28',}}><TypingIndicator  content="Navigator is typing..." style={{backgroundColor:'#FEF8EB',}} /></div> : null}
+          style={{backgroundColor:'#FEF8EB', border:'0px', color:'#151B28'}} 
         >
           {messages.map((message, index) => (
             <Message key={index} model={message}  />
           ))}
           {currentStep < chatFlow.length && chatFlow[currentStep].options && (
-            <div>
+            <div className="flex flex-wrap justify-start py-3 mb-2">
               {chatFlow[currentStep].options.map((option, index) => (
                 <button
                   key={index}
                   onClick={() => handleOptionClick(option)}
-                  className="bg-yellow-300 hover:bg-violet-300 text-black text-sm p-2 rounded-lg border-solid border-1 border-black mt-2 mb-2 mr-2"
+                  className={`text-black text-sm p-2 rounded-lg border-solid border-1 border-black mt-2 mr-2 ${
+                    option === 'Skip' ? 'bg-[#F0E7D5] hover:bg-yellow-400' : 'bg-[#FFBB33] hover:bg-yellow-400'
+                  }`}
                 >
                   {option}
                 </button>
               ))}
             </div>
           )}
-        </MessageList>
-        <MessageInput placeholder="Type your response here" onSend={handleSend} attachButton='false'  />
+        </MessageList>     
+        <MessageInput placeholder="Type your situation here..." onSend={handleSend} attachButton='true'
+        style={{backgroundColor:'white',borderRadius: '10px',border:'0.5px solid black'}} />
       </ChatContainer>
     </MainContainer>
     </div>

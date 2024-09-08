@@ -9,8 +9,6 @@
   color: #151B28;
 
   color-scheme: light dark;
-  /* color: rgba(255, 255, 255, 0.87); */
-  /* background-color: #242424; */
   background-color:#FEF8EB;
 
   font-synthesis: none;
@@ -20,14 +18,6 @@
   -webkit-text-size-adjust: 100%;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
 
 body {
   margin: 0;
@@ -36,6 +26,43 @@ body {
   place-items: center;
   min-width: 100vw;
   min-height: 100vh;
+}
+
+
+
+.cs-message__html-content {
+  font-family: 'Lexend', sans-serif;
+  padding: 3px;
+  color:#151B28;
+}
+
+
+.cs-message__content-wrapper{
+ padding-top: 4px;
+ padding-bottom: 4px;
+ 
+}
+
+.cs-message-list__typing-indicator{
+  color:#151B28;
+  padding:1px;
+  font-family: 'Lexend', sans-serif;
+  margin-top: 12px;
+
+}
+
+.cs-message-input{
+  border:1px solid black;
+  
+}
+
+.cs-message-input__content-editor-wrapper {
+  background-color: white;
+}
+.cs-message-input__content-editor{
+  background-color: white;
+  font-family: 'Lexend', sans-serif;
+  
 }
 
 h1 {
@@ -64,10 +91,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.my-chat-container {
-  background-color: plum;
-  height: 300px;
-}
+
 
 .new-story-alert {
   display: flex;
@@ -130,15 +154,4 @@ button:focus-visible {
   opacity: 0.9;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+
