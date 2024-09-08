@@ -9,7 +9,7 @@ const WelcomeToSN = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="flex flex-col items-start justify-center h-screen">
       <h1 className="text-4xl font-bold mb-4">Welcome to Social Navigator!</h1>
       <h2 className='text-1xl font-bold mb-4'>To better support you, we’d like to ask a few quick questions. This will help us tailor our feedback to fit your unique needs. </h2>
       <button
