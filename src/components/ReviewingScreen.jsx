@@ -1,6 +1,6 @@
 export default function ReviewingScreen ()  {
   return (
-    <div className="flex flex-col items-center justify-center min-h-100 bg-[#FEF8EB]">
+    <div className="flex flex-col items-start justify-center min-h-100vh bg-[#FEF8EB]">
       <div className="loader mb-4">
         <svg
           className="animate-spin h-12 w-12 text-gray-500"

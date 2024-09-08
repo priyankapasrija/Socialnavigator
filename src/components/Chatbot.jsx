@@ -7,7 +7,7 @@ import {
   MessageList,
   Message,
   MessageInput,
-  TypingIndicator,
+  //TypingIndicator,
 } from '@chatscope/chat-ui-kit-react';
 import { fetchSimulatedReview } from '../api/api.js';
 import chatFlow from '../data/chatFlowData'; 
@@ -19,7 +19,7 @@ function Chatbot() {
     { message: 'Need help navigating a tricky situation? Share your story with us. We’re here to listen, understand, and offer insights.', sender: 'Chatbot' }, */
     { message: 'Ready to share your story? Feel free to describe any situation that’s on your mind. If you need help framing your situation, just click ‘Need Guidance’, or you can start typing whenever you’re ready.', sender: 'Chatbot' },
   ]);
-  const [isTyping, setIsTyping] = useState(false);
+  //const [isTyping, setIsTyping] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [isReviewing, setIsReviewing] = useState(false);
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ function Chatbot() {
     };
 
     setMessages((prevMessages) => [...prevMessages, newMessage]);
-    setIsTyping(true);
+    //setIsTyping(true);
 
     if (message === 'Submit your story') {
       setIsReviewing(true); 
@@ -76,9 +76,7 @@ function Chatbot() {
             ...prevMessages,
             { message: 'There was an error fetching your review. Please try again later.', sender: 'Chatbot' },
           ]);
-        } finally {
-          setIsTyping(false);
-        }
+        } 
       }, 3000); 
 
       return; 
@@ -99,7 +97,7 @@ function Chatbot() {
         ]);
       }
       setCurrentStep((prevStep) => prevStep + 1);
-      setIsTyping(false);
+      //setIsTyping(false);
     }
   };
 
@@ -112,30 +110,33 @@ function Chatbot() {
   };
 
 
-  if (isReviewing) {
+ if (isReviewing) {
     return <ReviewingScreen />;
   }
 
 
   return (
+    
     <div className='flex items-center justify-center h-[60vh] w-[60vw] mx-auto my-auto'>
     <MainContainer className='border-none text-black'>
-      <ChatContainer>
+      <ChatContainer> 
+      isReviewing ? 
+      (<ReviewingScreen/> ) : (
         <MessageList
           scrollBehavior="auto"
-          typingIndicator={isTyping ? <div style={{color:'#151B28',}}><TypingIndicator  content="Navigator is typing..." style={{backgroundColor:'#FEF8EB',}} /></div> : null}
+          /*typingIndicator={isTyping ? <div style={{color:'#151B28',}}><TypingIndicator  content="Navigator is typing..." style={{backgroundColor:'#FEF8EB',}} /></div> : null} */
           style={{backgroundColor:'#FEF8EB', border:'0px', color:'#151B28'}} 
         >
           {messages.map((message, index) => (
             <Message key={index} model={message}  />
           ))}
           {currentStep < chatFlow.length && chatFlow[currentStep].options && (
-            <div className="flex flex-wrap justify-start py-3 mb-2">
+           <div className="flex flex-wrap justify-start py-3 mb-2">
               {chatFlow[currentStep].options.map((option, index) => (
                 <button
                   key={index}
                   onClick={() => handleOptionClick(option)}
-                  className={`text-black text-sm p-2 rounded-lg border-solid border-1 border-black mt-2 mr-2 ${
+                  className={`text-black text-xs p-2 rounded-lg border-solid border-1 border-black mt-2 mr-2 ${
                     option === 'Skip' ? 'bg-[#F0E7D5] hover:bg-yellow-400' : 'bg-[#FFBB33] hover:bg-yellow-400'
                   }`}
                 >
@@ -144,12 +145,12 @@ function Chatbot() {
               ))}
             </div>
           )}
-        </MessageList>     
-        <MessageInput placeholder="Type your situation here..." onSend={handleSend} attachButton='true'
-        style={{backgroundColor:'white',borderRadius: '10px',border:'0.5px solid black'}} />
+        </MessageList> )    
+        <MessageInput placeholder="Type your situation here..." onSend={handleSend} 
+        style={{backgroundColor:'white',borderRadius: '10px',border:'0.5px solid black', fontSize:'0.9rem'}} />
       </ChatContainer>
     </MainContainer>
-    </div>
+    </div> 
   );
 }
 
