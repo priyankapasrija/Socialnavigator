@@ -53,8 +53,8 @@ const chatFlow = [
     },
     {
       message: 'Would you like to share another story?',
-      options: ['Tell another story'], // User selects "Tell another story"
-    }
+      options: ['Tell another story'], // This step prompts the user to tell another story after the review
+    },
   ];
   
   export default chatFlow;

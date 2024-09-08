@@ -14,8 +14,8 @@ import chatFlow from '../data/chatFlowData';
 
 function Chatbot() {
   const [messages, setMessages] = useState([
-    { message: 'Hi there! Welcome to Social Navigator.', sender: 'Chatbot' },
-    { message: 'Need help navigating a tricky situation? Share your story with us. We’re here to listen, understand, and offer insights.', sender: 'Chatbot' },
+    /*{ message: 'Hi there! Welcome to Social Navigator.', sender: 'Chatbot' },
+    { message: 'Need help navigating a tricky situation? Share your story with us. We’re here to listen, understand, and offer insights.', sender: 'Chatbot' }, */
     { message: 'Ready to share your story? Feel free to describe any situation that’s on your mind. If you need help framing your situation, just click ‘Need Guidance’, or you can start typing whenever you’re ready.', sender: 'Chatbot' },
   ]);
   const [isTyping, setIsTyping] = useState(false);

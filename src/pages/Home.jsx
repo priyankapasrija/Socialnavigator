@@ -20,6 +20,7 @@ const Home = () => {
       >
         Try It Now
       </button>
+      <p>– No Registration Needed</p>
     </div>
   );
 };
