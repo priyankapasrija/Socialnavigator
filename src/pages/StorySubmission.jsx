@@ -7,7 +7,7 @@ const StorySubmission = () => {
       <p className="text-center mb-6">
         Our navigator will guide you through sharing your experience. Describe your situation and receive tailored insights.
       </p>
-      <div className="chatbot-container w-full max-w-2xl">
+      <div>
         <Chatbot />
       </div>
     </div>

@@ -13,8 +13,7 @@ function NewStoryAlert() {
   };
 
   const handleCancel = () => {
-   
-    navigate(-1); 
+    navigate('/'); 
   };
 
   return (
