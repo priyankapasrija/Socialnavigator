@@ -112,7 +112,7 @@ function Chatbot() {
                 <button
                   key={index}
                   onClick={() => handleOptionClick(option)}
-                  className="bg-yellow-300 hover:bg-violet-300 text-black text-sm p-2 rounded-md mt-2 mb-2 mr-2"
+                  className="bg-yellow-300 hover:bg-violet-300 text-black text-sm p-2 rounded-lg border-solid border-1 border-black mt-2 mb-2 mr-2"
                 >
                   {option}
                 </button>
