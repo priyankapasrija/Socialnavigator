@@ -4,7 +4,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleGetStarted = () => {
-    navigate('/story-submission');
+    navigate('/welcome-to-sn');
   };
 
   return (
