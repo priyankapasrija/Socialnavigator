@@ -3,14 +3,15 @@
 @tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Lexend', sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  color: #151B28;
 
   color-scheme: light dark;
   /* color: rgba(255, 255, 255, 0.87); */
   /* background-color: #242424; */
-  background-color: white;
+  background-color:#FEF8EB;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -50,8 +51,8 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #81af0d;
-  color:white;
+  background-color: #FFBB33;
+  color: #151B28;
   cursor: pointer;
   transition: border-color 0.25s;
 }

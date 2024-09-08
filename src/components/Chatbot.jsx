@@ -26,7 +26,9 @@ function Chatbot() {
     const newMessage = {
       message,
       direction: 'outgoing',
-      sender: 'user'
+      sender: 'user',
+      position: "single",
+      className: 'mt-4'
     };
 
     setMessages((prevMessages) => [...prevMessages, newMessage]);
@@ -36,14 +38,14 @@ function Chatbot() {
       if (message === 'Submit your story') {
         setMessages((prevMessages) => [
           ...prevMessages,
-          { message: 'We’re Reviewing Your Story. Thanks for sharing! We’re taking a moment to review your input and generate useful insights.', sender: 'Chatbot' },
+          { message: 'We’re Reviewing Your Story. Thanks for sharing! We \'re taking a moment to review your input and generate useful insights.', sender: 'Chatbot' , position:'single' },
         ]);
         try {
           const review = await fetchSimulatedReview();
           setMessages((prevMessages) => [
             ...prevMessages,
             { message: 'The review is complete', sender: 'Chatbot' },
-            { message: review.summary, sender: 'Chatbot' },
+            { message: review.summary, sender: 'Chatbot', position:'single' },
             { message: review.feelings, sender: 'Chatbot' },
             { message: review.miscommunications[0].title, sender: 'Chatbot' },
             ...review.miscommunications[0].points.map((point) => ({ message: point, sender: 'Chatbot' })),
