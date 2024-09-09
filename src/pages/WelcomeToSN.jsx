@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import Logo from '../assets/images/logo_social_navigator.svg';
 
 const WelcomeToSN = () => {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ const WelcomeToSN = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-[#FEF8EB]">
       <div className="p-6 bg-white shadow-lg rounded-lg text-center max-w-md">
+      <img src={Logo} alt="logo" className="justify-center"/>
         <h1 className="text-4xl font-bold mb-6">
           Welcome to Social Navigator!
         </h1>
