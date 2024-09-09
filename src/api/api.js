@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-const BASE_URL = process.env.BACKEND_URL;
+let BASE_URL;
+BASE_URL = import.meta.env.DEV
+    ? import.meta.env.VITE_BACKEND_DEV
+    : import.meta.env.VITE_BACKEND_DEPLOY;
 
 export const fetchSimulatedReview = async () => {
   try {
