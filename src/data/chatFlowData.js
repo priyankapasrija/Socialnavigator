@@ -45,11 +45,11 @@ const chatFlow = [
     },
     {
       message: 'Thank you for sharing these details. You can now submit your full story for analysis. Feel free to add anything else you think might be important. Or if you’re finished, just click ‘I’m ready to submit’.',
-      options: ['Edit message', 'I’m ready to submit'], // User selects an option: “I'm ready to submit”
+      options: ['I’m ready to submit'], // User selects an option: “I'm ready to submit”
     },
     {
       message: 'Submit your story for review by clicking below.',
-      options: ['Review your story'], // User selects "Submit your story"
+      options: ['Edit message','Submit your story'], // User selects "Submit your story"
     },
     {
       message: 'Would you like to share another story?',

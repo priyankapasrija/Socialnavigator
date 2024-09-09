@@ -46,6 +46,10 @@ body {
   color:#151B28;
 }
 
+.cs-message-list--loading{
+  background-color: white;
+}
+
 
 .cs-message__content-wrapper{
  padding-top: 4px;

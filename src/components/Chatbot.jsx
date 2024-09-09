@@ -36,7 +36,7 @@ function Chatbot() {
     setMessages((prevMessages) => [...prevMessages, newMessage]);
     //setIsTyping(true);
 
-    if (message === 'Review your story') {
+    if (message === 'Submit your story') {
       setIsReviewing(true); 
 
 
@@ -136,8 +136,17 @@ function Chatbot() {
                     key={index}
                     onClick={() => handleOptionClick(option)}
                     className={`text-black text-xs p-2 rounded-lg border-solid border-1 border-black mt-2 mr-2 ${
-                      option === 'Skip' ? 'bg-[#F0E7D5] hover:bg-yellow-400' : 'bg-[#FFBB33] hover:bg-yellow-400'
-                    }`}
+                      option === 'Skip' ? '!bg-[#F0E7D5] hover:bg-yellow-400 ' : 'bg-[#FFBB33] hover:bg-yellow-400'
+                    } ${
+                      option === 'Edit message' ? '!bg-white hover:bg-yellow-400 !p-3 !rounded-full' : 'bg-[#FFBB33] hover:bg-yellow-400'
+                    }
+                    ${
+                      option === 'Submit your story' ? '!bg-[#FFBB33] !hover:bg-blue-600 !p-3 !rounded-full' : 'bg-[#FFBB33] hover:bg-yellow-400'
+                    }  
+                    ${
+                      option === 'Tell another story' ? '!bg-white !hover:bg-blue-400 !p-3 !rounded-full' : 'bg-[#FFBB33] hover:bg-yellow-400'
+                    }  `
+                  }
                   >
                     {option}
                   </button>
