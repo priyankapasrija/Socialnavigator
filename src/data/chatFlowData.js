@@ -49,7 +49,7 @@ const chatFlow = [
     },
     {
       message: 'Submit your story for review by clicking below.',
-      options: ['Submit your story'], // User selects "Submit your story"
+      options: ['Review your story'], // User selects "Submit your story"
     },
     {
       message: 'Would you like to share another story?',

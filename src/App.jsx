@@ -3,9 +3,9 @@ import Home from "./pages/Home";
 import StorySubmission from "./pages/StorySubmission";
 import NewStoryAlert from "./pages/NewStoryAlert";
 import WelcomeToSN from "./pages/WelcomeToSN";
-import SelectionOne from "./components/SelectionOne";
-import SelectionTwo from "./components/SelectionTwo";
-import SelectionThree from "./components/SelectionThree";
+import SelectionOne from "./pages/SelectionOne";
+import SelectionTwo from "./pages/SelectionTwo";
+import SelectionThree from "./pages/SelectionThree";
 
 function App() {
   return (

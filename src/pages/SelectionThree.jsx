@@ -7,8 +7,8 @@ const SelectionThree = () => {
     navigate("/story-submission");
   };
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[#FEF8EB]  p-6">
-      <div className="p-6 bg-white shadow-lg rounded-lg w-[60%] text-center">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-[#FEF8EB] p-6">
+      <div className="p-6 bg-white shadow-lg rounded-lg text-center max-w-xl">
         <h1 className="text-3xl font-semibold mb-4">Thank you!</h1>
         <p className="text-lg text-center mb-6 text-gray-600">
           Your responses will help us create a more personalized and supportive

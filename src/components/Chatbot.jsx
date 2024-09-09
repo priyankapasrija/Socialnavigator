@@ -36,7 +36,7 @@ function Chatbot() {
     setMessages((prevMessages) => [...prevMessages, newMessage]);
     //setIsTyping(true);
 
-    if (message === 'Submit your story') {
+    if (message === 'Review your story') {
       setIsReviewing(true); 
 
 
@@ -120,32 +120,32 @@ function Chatbot() {
     <div className='flex items-center justify-center h-[60vh] w-[60vw] mx-auto my-auto'>
     <MainContainer className='border-none text-black'>
       <ChatContainer> 
-      isReviewing ? 
-      (<ReviewingScreen/> ) : (
         <MessageList
-          scrollBehavior="auto"
-          /*typingIndicator={isTyping ? <div style={{color:'#151B28',}}><TypingIndicator  content="Navigator is typing..." style={{backgroundColor:'#FEF8EB',}} /></div> : null} */
-          style={{backgroundColor:'#FEF8EB', border:'0px', color:'#151B28'}} 
-        >
-          {messages.map((message, index) => (
-            <Message key={index} model={message}  />
-          ))}
-          {currentStep < chatFlow.length && chatFlow[currentStep].options && (
-           <div className="flex flex-wrap justify-start py-3 mb-2">
-              {chatFlow[currentStep].options.map((option, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleOptionClick(option)}
-                  className={`text-black text-xs p-2 rounded-lg border-solid border-1 border-black mt-2 mr-2 ${
-                    option === 'Skip' ? 'bg-[#F0E7D5] hover:bg-yellow-400' : 'bg-[#FFBB33] hover:bg-yellow-400'
-                  }`}
-                >
-                  {option}
-                </button>
-              ))}
-            </div>
-          )}
-        </MessageList> )    
+            scrollBehavior="auto"
+            style={{ backgroundColor:'#FEF8EB', border:'0px', color:'#151B28' }}
+          >
+            {isReviewing 
+              ? <ReviewingScreen /> 
+              : messages.map((message, index) => (
+                  <Message key={index} model={message} />
+                ))
+            }
+            {!isReviewing && currentStep < chatFlow.length && chatFlow[currentStep].options && (
+              <div className="flex flex-wrap justify-start py-3 mb-2">
+                {chatFlow[currentStep].options.map((option, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleOptionClick(option)}
+                    className={`text-black text-xs p-2 rounded-lg border-solid border-1 border-black mt-2 mr-2 ${
+                      option === 'Skip' ? 'bg-[#F0E7D5] hover:bg-yellow-400' : 'bg-[#FFBB33] hover:bg-yellow-400'
+                    }`}
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
+            )}
+          </MessageList>     
         <MessageInput placeholder="Type your situation here..." onSend={handleSend} 
         style={{backgroundColor:'white',borderRadius: '10px',border:'0.5px solid black', fontSize:'0.9rem'}} />
       </ChatContainer>
