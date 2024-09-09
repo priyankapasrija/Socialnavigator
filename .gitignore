@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# Environment Variables
+.env                      # Exclude .env file containing sensitive environment variables
+.env.local                # Exclude local environment files
+.env.*                    # Exclude all variant env files like .env.development, .env.test
+

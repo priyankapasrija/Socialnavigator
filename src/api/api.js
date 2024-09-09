@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:26000'; 
+const BASE_URL = process.env.BACKEND_URL;
 
 export const fetchSimulatedReview = async () => {
   try {
