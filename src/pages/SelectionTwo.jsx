@@ -22,13 +22,13 @@ const SelectionTwo = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[#FEF8EB]">
-      <div className="p-6 bg-white shadow-lg rounded-lg text-center max-w-xl">
+    <div className="flex flex-col items-start justify-center min-h-screen bg-[#FEF8EB]">
+      <div className="p-6 bg-white shadow-lg rounded-lg text-left max-w-xl">
         <p className="text-2xl font-semibold mb-6">
           What kind of support or features would you find most useful?
         </p>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mb-6">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mb-6 flex flex-row">
           {options.map((option, index) => (
             <button
               key={index}

@@ -7,10 +7,10 @@ const SelectionThree = () => {
     navigate("/story-submission");
   };
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[#FEF8EB] p-6">
-      <div className="p-6 bg-white shadow-lg rounded-lg text-center max-w-xl">
+    <div className="flex flex-col items-start justify-center min-h-screen bg-[#FEF8EB]">
+    <div className="p-6 bg-white shadow-lg rounded-lg text-left max-w-xl">
         <h1 className="text-3xl font-semibold mb-4">Thank you!</h1>
-        <p className="text-lg text-center mb-6 text-gray-600">
+        <p className="text-lg  mb-6 text-gray-600">
           Your responses will help us create a more personalized and supportive
           experience for you. You can update your preferences anytime in your
           profile settings.
@@ -23,7 +23,7 @@ const SelectionThree = () => {
           Start exploring
         </button>
 
-        <p className="mt-6 text-xs text-gray-500 text-center">
+        <p className="mt-6 text-xs text-gray-500">
           Your privacy is our priority. The information you provide is
           confidential and is only used to customize your experience in a secure
           manner.

@@ -29,10 +29,20 @@ body {
 }
 
 
+.cs-message__content {
+  font-family: 'Lexend', sans-serif;
+  background-color: #CCD4FF;
+}
+
+.cs-message--outgoing .cs-message__content {
+  font-family: 'Lexend', sans-serif;
+  background-color: white;
+  border:0.5px solid black;
+}
 
 .cs-message__html-content {
   font-family: 'Lexend', sans-serif;
-  padding: 3px;
+  padding: 4px;
   color:#151B28;
 }
 

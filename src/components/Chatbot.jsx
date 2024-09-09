@@ -110,9 +110,7 @@ function Chatbot() {
   };
 
 
- if (isReviewing) {
-    return <ReviewingScreen />;
-  }
+ 
 
 
   return (
@@ -122,6 +120,7 @@ function Chatbot() {
       <ChatContainer> 
         <MessageList
             scrollBehavior="auto"
+            loading={isReviewing} 
             style={{ backgroundColor:'#FEF8EB', border:'0px', color:'#151B28' }}
           >
             {isReviewing 
@@ -146,7 +145,7 @@ function Chatbot() {
               </div>
             )}
           </MessageList>     
-        <MessageInput placeholder="Type your situation here..." onSend={handleSend} 
+        <MessageInput placeholder="Type your situation here..." attachButton='false' onSend={handleSend} 
         style={{backgroundColor:'white',borderRadius: '10px',border:'0.5px solid black', fontSize:'0.9rem'}} />
       </ChatContainer>
     </MainContainer>

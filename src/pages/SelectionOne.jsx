@@ -29,8 +29,8 @@ const SelectionOne = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[#FEF8EB]">
-      <div className="p-6 bg-white shadow-lg rounded-lg max-w-xl max-w-xl ">
+    <div className="flex flex-col items-start justify-center min-h-screen bg-[#FEF8EB]">
+    <div className="p-6 bg-white shadow-lg rounded-lg text-left max-w-xl">
         <h1 className="text-2xl font-semibold mb-4">
           Do you identify as neurodivergent?
         </h1>
@@ -45,8 +45,8 @@ const SelectionOne = () => {
               onClick={() => toggleOption(option)}
               className={`px-4 py-2 rounded-full border ${
                 selectedOptions.includes(option)
-                  ? "bg-black-500 text-white"
-                  : "bg-white text-gray-800"
+                  ? "bg-black text-white"
+                  : "bg-white text-gray-800 hover:bg-[#FFBB33] hover:text-[#151B28]"
               } shadow-md`}
             >
               {option}

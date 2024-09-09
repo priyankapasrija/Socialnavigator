@@ -9,9 +9,9 @@ const WelcomeToSN = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[#FEF8EB]">
-      <div className="p-6 bg-white shadow-lg rounded-lg text-center max-w-md">
-      <img src={Logo} alt="logo" className="justify-center"/>
+    <div className="flex flex-col items-start justify-center min-h-screen bg-[#FEF8EB]">
+      <div className="p-6 bg-white shadow-lg rounded-lg text-left max-w-xl">
+      <img src={Logo} alt="logo" className="h-10 mr-10"/>
         <h1 className="text-4xl font-bold mb-6">
           Welcome to Social Navigator!
         </h1>
