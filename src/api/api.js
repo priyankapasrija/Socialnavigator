@@ -8,7 +8,7 @@ BASE_URL = import.meta.env.DEV
 export const fetchSimulatedReview = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/api/reviews/simulated-review`);
-    console.log(`Simulated Review is fetched🥰’);
+    console.log('Simulated Review is fetched🥰’);
     return response.data;
      
   } catch (error) {
