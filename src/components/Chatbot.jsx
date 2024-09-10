@@ -46,21 +46,21 @@ function Chatbot() {
           setIsReviewing(false); 
 
           const combinedReviewMessage = `
-            *Review Summary*:
+            <b>Review Summary</b>:
             ${review.summary}
             
-            *How the Situation Felt*:
+            <b>How the Situation Felt</b>:
             ${review.feelings}
             
-            **Miscommunications**:
+            <b>Miscommunications</b>:
             ${review.miscommunications[0].title}
             ${review.miscommunications[0].points.join('\n')}
             
-            **Suggestions**:
+            <b>Suggestions</b>:
             ${review.suggestions.join(', ')}
             
-            **Insights**:
-            ${review.insights.map((insight) => `${insight.title}: ${insight.description}`).join('\n')}
+            <b>Insights</b>:
+            ${review.insights.map((insight) => `<b>${insight.title}</b>: <br> ${insight.description}`).join('\n')}
           `;
 
           setMessages((prevMessages) => [
@@ -130,7 +130,7 @@ function Chatbot() {
                 ))
             }
             {!isReviewing && currentStep < chatFlow.length && chatFlow[currentStep].options && (
-              <div className="flex flex-wrap justify-start py-3 mb-2">
+              <div className={`flex flex-wrap ${chatFlow[currentStep].options.includes('Edit story') || chatFlow[currentStep].options.includes('Submit your story') ? 'justify-end' : 'justify-start'} justify-start py-3 mb-2`}>
                 {chatFlow[currentStep].options.map((option, index) => (
                   <button
                     key={index}
