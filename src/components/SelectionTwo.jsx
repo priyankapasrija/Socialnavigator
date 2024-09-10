@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 
-const SelectionTwo = () => {
-  const navigate = useNavigate();
+const SelectionTwo = ({onNext}) => {
+  //const navigate = useNavigate();
 
-  const nextQuestion = () => {
-    navigate("/nextque1");
-  };
+ // const nextQuestion = () => {
+ //   navigate("/nextque1");
+ // };
   const [selectedOption, setSelectedOption] = useState(null);
 
   const options = [
@@ -22,8 +22,8 @@ const SelectionTwo = () => {
   };
 
   return (
-    <div className="flex flex-col items-start justify-center min-h-screen bg-[#FEF8EB]">
-      <div className="p-6 bg-white shadow-lg rounded-lg text-left max-w-xl">
+    //<div className="flex flex-col items-start justify-center min-h-screen bg-[#FEF8EB]">
+      <div className="p-6 bg-white  rounded-lg text-left max-w-xl">
         <p className="text-2xl font-semibold mb-6">
           What kind of support or features would you find most useful?
         </p>
@@ -51,7 +51,7 @@ const SelectionTwo = () => {
             </button>
             <button
               className="px-6 py-3 bg-[#FFBB33] text-[#151B28] rounded-full hover:bg-blue-600 shadow-md text-base"
-              onClick={nextQuestion}
+              onClick={onNext}
             >
               Next question
               <span className="ml-2">→</span>
@@ -65,7 +65,7 @@ const SelectionTwo = () => {
           manner.
         </p>
       </div>
-    </div>
+    //</div>
   );
 };
 

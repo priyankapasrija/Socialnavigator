@@ -1,12 +1,12 @@
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-const SelectionOne = () => {
-  const navigate = useNavigate();
+const SelectionOne = ({onNext}) => {
+  //const navigate = useNavigate();
 
-  const nextQuestion = () => {
-    navigate("/nextque");
-  };
+  //const nextQuestion = () => {
+  //  navigate("/nextque");
+  //};
   const [selectedOptions, setSelectedOptions] = useState([]);
 
   const options = [
@@ -29,8 +29,8 @@ const SelectionOne = () => {
   };
 
   return (
-    <div className="flex flex-col items-start justify-center min-h-screen bg-[#FEF8EB]">
-    <div className="p-6 bg-white shadow-lg rounded-lg text-left max-w-xl">
+    //<div className="flex flex-col items-start justify-center min-h-screen bg-[#FEF8EB]">
+    <div className="p-6 bg-white rounded-lg text-left max-w-xl">
         <h1 className="text-2xl font-semibold mb-4">
           Do you identify as neurodivergent?
         </h1>
@@ -72,7 +72,7 @@ const SelectionOne = () => {
         {selectedOptions.length > 0 && (
           <div className="flex justify-end mt-6">
             <button
-              onClick={nextQuestion}
+              onClick={onNext}
               className="px-6 py-2 bg-#FFBB33-500 text-#151B28 rounded-full hover:bg-blue-600"
             >
               Next Question →
@@ -86,7 +86,7 @@ const SelectionOne = () => {
           manner.
         </p>
       </div>
-    </div>
+    //</div>
   );
 };
 

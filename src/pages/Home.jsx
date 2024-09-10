@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import Navigation from '../assets/images/navigation.svg'
+import Navigation from '../assets/images/navigation.svg';
+import PopUp from '../components/PopUp';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -16,12 +17,15 @@ const Home = () => {
       <p className="text-md mb-6 text-left">
       We understand that social situations can be challenging for everyone, especially for those who are neurodivergent. Our AI offers personalized feedback to help you navigate interactions with ease—at your own pace.
       </p>
-      <button
+      {/*<button
         onClick={handleTryItNow}
         className="px-6 py-2 bg-#FFBB33-500 text-#151B28 rounded-full hover:bg-blue-600"
       >
         Try It Now
-      </button>
+  </button>*/}
+     
+        <PopUp/>
+     
       <p className='text-sm mt-6'>– No Registration Needed</p>
     </div>
     <img src={Navigation} alt="navigation drawing" className='w-1/5 h-100 mr-20' />

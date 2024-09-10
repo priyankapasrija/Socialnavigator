@@ -1,16 +1,16 @@
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import Logo from '../assets/images/logo_social_navigator.svg';
 
-const WelcomeToSN = () => {
-  const navigate = useNavigate();
+const WelcomeToSN = ({onNext}) => {
+  //const navigate = useNavigate();
 
-  const handleGetStarted = () => {
-    navigate("/selection");
-  };
+  //const handleGetStarted = () => {
+   // navigate("/selection");
+  //};
 
   return (
-    <div className="flex flex-col items-start justify-center min-h-screen bg-[#FEF8EB]">
-      <div className="p-6 bg-white shadow-lg rounded-lg text-left max-w-xl">
+   //<div className="flex flex-col items-start justify-center min-h-screen bg-[#FEF8EB]">
+      <div className="p-6 bg-white rounded-lg text-left max-w-xl">
       <img src={Logo} alt="logo" className="h-10 mr-10"/>
         <h1 className="text-4xl font-bold mb-6">
           Welcome to Social Navigator!
@@ -20,7 +20,7 @@ const WelcomeToSN = () => {
           will help us tailor our feedback to fit your unique needs.
         </h2>
         <button
-          onClick={handleGetStarted}
+          onClick={onNext}
           className="px-6 py-3 bg-[#FFBB33] text-[#151B28] rounded-full hover:bg-blue-600 mb-4 shadow-md"
         >
           Get started
@@ -31,7 +31,7 @@ const WelcomeToSN = () => {
           manner.
         </p>
       </div>
-    </div>
+    //</div>
   );
 };
 
