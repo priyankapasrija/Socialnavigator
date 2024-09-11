@@ -12,6 +12,7 @@ import {
 import { fetchSimulatedReview } from '../api/api.js';
 import chatFlow from '../data/chatFlowData'; 
 import ReviewingScreen from './ReviewingScreen.jsx';
+import PopUpTwo from './PopUpTwo.jsx';
 
 function Chatbot() {
   const [messages, setMessages] = useState([
@@ -23,11 +24,13 @@ function Chatbot() {
   const [currentStep, setCurrentStep] = useState(0);
   const [isReviewing, setIsReviewing] = useState(false);
   const [hideInput,setHideInput] = useState(false);
+  const [showPopUp, setShowPopUp] = useState(false); 
   const navigate = useNavigate();
 
   useEffect(() => {
     if (chatFlow[currentStep]?.options?.includes('Tell another story')) {
       setHideInput(true);
+      setShowPopUp(true);
     } else {
       setHideInput(false);
     }
@@ -114,8 +117,8 @@ function Chatbot() {
 
   const handleOptionClick = (option) => {
     if (option === 'Tell another story') {
+      setShowPopUp(true);
       setHideInput(true);
-      navigate('/new-story-alert');
     } else {
       handleSend(option);
     }
@@ -126,7 +129,7 @@ function Chatbot() {
     <div className='flex items-center justify-center h-[60vh] w-[60vw] mx-auto my-auto'>
     <MainContainer className='border-none text-black'>
       <ChatContainer> 
-        <MessageList
+      <MessageList
             scrollBehavior="auto"
             loading={isReviewing} 
             style={{ backgroundColor:'#FEF8EB', border:'0px', color:'#151B28' }}
@@ -139,29 +142,31 @@ function Chatbot() {
             }
             {!isReviewing && currentStep < chatFlow.length && chatFlow[currentStep].options && (
               <div className={`flex flex-wrap 
-              ${chatFlow[currentStep].options.includes('Edit story') || chatFlow[currentStep].options.includes('Submit your story') ? 'justify-end' : 'justify-start'}
-              ${chatFlow[currentStep].options.includes('Tell another story') ? 'justify-end' : 'justify-start'} 
-               justify-start py-3 mb-2`}>
-                {chatFlow[currentStep].options.map((option, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleOptionClick(option)}
-                    className={`text-black text-sm shadow-md p-2 rounded-lg mt-2 mr-2 hover:bg-blue-500 hover:border-none ${
-                      option === 'Skip' ? '!bg-[#F0E7D5] hover:bg-yellow-400 ' : 'bg-[#FFBB33] hover:bg-yellow-400'
-                    } ${
-                      option === 'Edit message' ? '!bg-white hover:bg-yellow-400 !px-6 !py-3 !rounded-full' : 'bg-[#FFBB33] hover:bg-yellow-400'
-                    }
-                    ${
-                      option === 'Submit your story' ? '!bg-[#FFBB33] !hover:bg-blue-600 !px-6 !py-3 !rounded-full' : 'bg-[#FFBB33] hover:bg-yellow-400'
-                    }  
-                    ${
-                      option === 'Tell another story' ? '!bg-[#FFBB33]!hover:bg-blue-600 !px-6 !py-3 !rounded-full' : 'bg-[#FFBB33] hover:bg-yellow-400'
-                    }  `
-                  }
-                  >
-                    {option}
-                  </button>
-                ))}
+                ${chatFlow[currentStep].options.some(option => ['Edit message', 'Submit your story'].includes(option)) ? 'justify-end' : 'justify-start'}
+                py-3 mb-2`}>
+                {showPopUp ? (
+                  <PopUpTwo  />
+                ) : (
+                  chatFlow[currentStep].options.map((option, index) => (
+                    <button
+                      key={index}
+                      onClick={() => handleOptionClick(option)}
+                      className={`text-black text-sm shadow-md p-2 rounded-lg mt-2 mr-2 hover:bg-blue-500 hover:border-none ${
+                        option === 'Skip' ? '!bg-[#F0E7D5] hover:bg-yellow-400 ' : 'bg-[#FFBB33] hover:bg-yellow-400'
+                      } ${
+                        option === 'Edit message' ? '!bg-white hover:bg-yellow-400 !px-6 !py-3 !rounded-full' : 'bg-[#FFBB33] hover:bg-yellow-400'
+                      }
+                      ${
+                        option === 'Submit your story' ? '!bg-[#FFBB33] !hover:bg-blue-600 !px-6 !py-3 !rounded-full' : 'bg-[#FFBB33] hover:bg-yellow-400'
+                      }  
+                      ${
+                        option === 'Tell another story' ? '!bg-[#FFBB33]!hover:bg-blue-600 !px-6 !py-3 !rounded-full' : 'bg-[#FFBB33] hover:bg-yellow-400'
+                      }  `}
+                    >
+                      {option}
+                    </button>
+                  ))
+                )}
               </div>
             )}
           </MessageList>     

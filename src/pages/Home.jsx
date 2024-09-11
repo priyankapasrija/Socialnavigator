@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import Navigation from '../assets/images/navigation.svg';
 import PopUp from '../components/PopUp';
+import Logo from '../assets/images/logo_social_navigator.svg';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ const Home = () => {
   return (
     < div className='flex justify-around mr-20 ml-20'>
     <div className="flex flex-col items-start justify-center h-screen ml-10 w-1/2">
+    <img src={Logo} alt="logo" className="h-10 mb-1"/>
       <h1 className="text-5xl font-bold mb-4 leading-snug">Navigate Social Situations with Confidence</h1>
       <p className='text-lg mb-4'>Personalized, <span className='rounded-underline underline underline-offset-4 font-bold decoration-4' style={{textDecorationColor: '#CCD4FF'}}>AI-Powered</span> Insights for Your Unique Social Journey</p>
       <p className="text-md mb-6 text-left">

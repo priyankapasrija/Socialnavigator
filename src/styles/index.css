@@ -175,3 +175,11 @@ button[aria-label="Close"] {
   color: black !important;
   border: none !important;
 }
+
+button.bg-warning.text-warning-foreground:hover {
+  background-color: rgb(37, 99, 235) !important; 
+  color: black !important;
+  border: none !important;
+  scale: 1 !important;
+}
+

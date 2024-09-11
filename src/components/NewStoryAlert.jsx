@@ -7,30 +7,31 @@ function NewStoryAlert() {
     navigate('/story-submission');
   };
 
-  const handleSaveAndSignup = () => {
-    navigate('/signup');
-  };
-
   const handleCancel = () => {
     navigate('/');
   };
 
+ // const handleSaveAndSignup = () => {
+ //   navigate('/signup');
+ // };
+
   return (
-    <div className="flex flex-col items-start justify-center min-h-screen bg-[#FEF8EB]">
-      <div className="p-6 bg-white shadow-lg rounded-lg w-full max-w-xl text-left">
+   // <div className="flex flex-col items-start justify-center min-h-screen bg-[#FEF8EB]">
+      <div className="p-6 bg-white  rounded-lg text-left max-w-xl">
         <h2 className="text-2xl font-semibold mb-4">Heads Up!</h2>
-        <p className="text-black-600 mb-4">
+        <p className="text-gray-600 mb-4">
           If you <strong>start a new story</strong> now, the one you’re currently working on and its review will be cleared.
         </p>
-        <p className="text-black-600 mb-6">
+        <p className="text-gray-600 mb-6">
           To keep your current story and review, you can <strong>save them by registering.</strong> This way, you can come back to them anytime.
         </p>
-        <div className="flex flex-row justify-around ">
+
+        <div className="flex flex-col gap-4 mb-6 justify-center">
         <button 
-            onClick={handleCancel} 
-            className="px-6 py-3 rounded-full  bg-white border  shadow-md text-gray-700 hover:bg-gray-100"
+            /*onClick={handleSaveAndSignup} */
+            className="px-6 py-3 bg-[#FFBB33] text-[#151B28] rounded-full hover:bg-blue-600 shadow-md"
           >
-            Cancel
+            Save & Sign Up
           </button>
           <button 
             onClick={handleStartNewStory} 
@@ -38,16 +39,20 @@ function NewStoryAlert() {
           >
             Start New Story
           </button>
+          
           <button 
-            onClick={handleSaveAndSignup} 
-            className="px-6 py-3 bg-[#FFBB33] text-[#151B28] rounded-full hover:bg-blue-600 shadow-md"
+            onClick={handleCancel} 
+            className="px-6 py-3 rounded-full border bg-white text-gray-800 hover:bg-gray-100 shadow-md"
           >
-            Save & Sign Up
+            Cancel
           </button>
-         
         </div>
+
+        <p className="mt-6 text-xs text-gray-500">
+          Your privacy is our priority. The information you provide is confidential and is only used to customize your experience in a secure manner.
+        </p>
       </div>
-    </div>
+    //</div>
   );
 }
 
