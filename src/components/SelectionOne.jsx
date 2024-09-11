@@ -75,7 +75,8 @@ const SelectionOne = ({onNext}) => {
               onClick={onNext}
               className="px-6 py-2 bg-#FFBB33-500 text-#151B28 rounded-full hover:bg-blue-600"
             >
-              Next Question →
+              Next Question
+              <span className="ml-2">→</span>
             </button>
           </div>
         )}
