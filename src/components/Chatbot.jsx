@@ -140,7 +140,7 @@ function Chatbot() {
             {!isReviewing && currentStep < chatFlow.length && chatFlow[currentStep].options && (
               <div className={`flex flex-wrap 
               ${chatFlow[currentStep].options.includes('Edit story') || chatFlow[currentStep].options.includes('Submit your story') ? 'justify-end' : 'justify-start'}
-              ${chatFlow[currentStep].options.includes('Tell another story') ? 'justify-center' : 'justify-start'} 
+              ${chatFlow[currentStep].options.includes('Tell another story') ? 'justify-end' : 'justify-start'} 
                justify-start py-3 mb-2`}>
                 {chatFlow[currentStep].options.map((option, index) => (
                   <button
@@ -155,7 +155,7 @@ function Chatbot() {
                       option === 'Submit your story' ? '!bg-[#FFBB33] !hover:bg-blue-600 !p-3 !rounded-full' : 'bg-[#FFBB33] hover:bg-yellow-400'
                     }  
                     ${
-                      option === 'Tell another story' ? '!bg-white !hover:bg-blue-400 !p-3 !rounded-full' : 'bg-[#FFBB33] hover:bg-yellow-400'
+                      option === 'Tell another story' ? '!bg-white !hover:bg-blue-600 !p-3 !rounded-full' : 'bg-[#FFBB33] hover:bg-yellow-400'
                     }  `
                   }
                   >
