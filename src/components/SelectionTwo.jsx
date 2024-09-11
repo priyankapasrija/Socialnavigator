@@ -46,7 +46,7 @@ const SelectionTwo = ({onNext}) => {
 
         {selectedOption && (
           <div className="flex justify-between items-center mt-6">
-            <button className="text-base text-gray-600 underline hover:text-gray-800 !bg-[#F0E7D5]">
+            <button className="text-base text-gray-600 text-black hover:text-gray-800 !bg-[#F0E7D5]">
               Skip
             </button>
             <button
