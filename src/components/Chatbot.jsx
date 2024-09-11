@@ -56,27 +56,29 @@ function Chatbot() {
         try {
           const review = await fetchSimulatedReview();
           setIsReviewing(false); 
-
           const combinedReviewMessage = `
-            <b>Review Summary</b>:
-            ${review.summary}
-            
-            <b>How the Situation Felt</b>:
-            ${review.feelings}
-            
-            <b>Miscommunications</b>:
-            ${review.miscommunications[0].title}
-            ${review.miscommunications[0].points.join(',')}
-            
-            <b>Suggestions</b>:
-            ${review.suggestions.join(', ')}
-            
-            <b>Insights</b>:
-            ${review.insights.map((insight) => 
-            `<b>${insight.title}</b>:
-            <br> ${insight.description}`).join(',')}
-          `;
-
+          <b>Review Summary</b>:
+          ${review.summary}
+          
+          <b>How the Situation Felt</b>:
+          ${review.feelings}
+          
+          <b>Miscommunications</b>:
+          ${review.miscommunication.map((miscommunication) => `
+              <b>${miscommunication.title}</b>: 
+              ${miscommunication.points}
+          `).join('')}
+          
+          <b>Suggestions</b>:
+          1) ${review.suggestions[0]?.One}
+          2) ${review.suggestions[0]?.Two}
+          
+          <b>Insights</b>:
+          ${review.insights.map((insight) => `
+              <b>${insight.title}</b>:
+              ${insight.description}
+          `).join('')}
+        `;
           setMessages((prevMessages) => [
             ...prevMessages,
             { message: 'The review is complete', sender: 'Chatbot' },
@@ -141,7 +143,7 @@ function Chatbot() {
                 ))
             }
             {!isReviewing && currentStep < chatFlow.length && chatFlow[currentStep].options && (
-              <div className={`flex flex-wrap 
+              <div className={`flex flex-wrap ${ showPopUp ? 'justify-end' : 'justify-start'}
                 ${chatFlow[currentStep].options.some(option => ['Edit message', 'Submit your story'].includes(option)) ? 'justify-end' : 'justify-start'}
                 py-3 mb-2`}>
                 {showPopUp ? (
