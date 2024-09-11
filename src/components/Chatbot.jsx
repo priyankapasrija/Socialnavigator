@@ -54,13 +54,15 @@ function Chatbot() {
             
             <b>Miscommunications</b>:
             ${review.miscommunications[0].title}
-            ${review.miscommunications[0].points.join('\n')}
+            ${review.miscommunications[0].points.join(',')}
             
             <b>Suggestions</b>:
             ${review.suggestions.join(', ')}
             
             <b>Insights</b>:
-            ${review.insights.map((insight) => `<b>${insight.title}</b>: <br> ${insight.description}`).join('\n')}
+            ${review.insights.map((insight) => 
+            `<b>${insight.title}</b>:
+            <br> ${insight.description}`).join(',')}
           `;
 
           setMessages((prevMessages) => [
@@ -130,7 +132,10 @@ function Chatbot() {
                 ))
             }
             {!isReviewing && currentStep < chatFlow.length && chatFlow[currentStep].options && (
-              <div className={`flex flex-wrap ${chatFlow[currentStep].options.includes('Edit story') || chatFlow[currentStep].options.includes('Submit your story') ? 'justify-end' : 'justify-start'} justify-start py-3 mb-2`}>
+              <div className={`flex flex-wrap 
+              ${chatFlow[currentStep].options.includes('Edit story') || chatFlow[currentStep].options.includes('Submit your story') ? 'justify-end' : 'justify-start'}
+              ${chatFlow[currentStep].options.includes('Tell another story') ? 'justify-center' : 'justify-start'} 
+               justify-start py-3 mb-2`}>
                 {chatFlow[currentStep].options.map((option, index) => (
                   <button
                     key={index}
