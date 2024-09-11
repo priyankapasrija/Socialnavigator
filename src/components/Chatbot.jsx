@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import {
@@ -22,7 +22,16 @@ function Chatbot() {
   //const [isTyping, setIsTyping] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [isReviewing, setIsReviewing] = useState(false);
+  const [hideInput,setHideInput] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (chatFlow[currentStep]?.options?.includes('Tell another story')) {
+      setHideInput(true);
+    } else {
+      setHideInput(false);
+    }
+  }, [currentStep]);
 
   const handleSend = async (message) => {
     const newMessage = {
@@ -105,15 +114,12 @@ function Chatbot() {
 
   const handleOptionClick = (option) => {
     if (option === 'Tell another story') {
+      setHideInput(true);
       navigate('/new-story-alert');
     } else {
       handleSend(option);
     }
   };
-
-
- 
-
 
   return (
     
@@ -159,7 +165,7 @@ function Chatbot() {
               </div>
             )}
           </MessageList>     
-          {!isReviewing && (
+          {!isReviewing && !hideInput && (
   <MessageInput
     placeholder="Type your response here"
     onSend={(message) => handleSend(message)}
