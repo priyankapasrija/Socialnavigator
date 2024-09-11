@@ -33,7 +33,7 @@ export default function PopUp() {
 
   return (
     <>
-      <Button color="warning" radius="full" size="lg" onPress={onOpen} className="!px-8 !py-4 !bg-yellow !text-#151B28 !rounded-full !hover:bg-blue-600">
+      <Button color="warning" radius="full" size="lg" onPress={onOpen} className="!px-8 !py-4 !bg-yellow !text-#151B28 !rounded-full !hover:bg-blue-600 !shadow-md">
        Try It Now
       </Button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} isDismissable={false} isKeyboardDismissDisabled={false}>
