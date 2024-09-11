@@ -46,14 +46,14 @@ const SelectionTwo = ({onNext}) => {
 
         {selectedOption && (
           <div className="flex justify-between items-center mt-6">
-            <button className="text-base text-gray-600 underline hover:text-gray-800">
+            <button className="text-base text-gray-600 underline hover:text-gray-800 !bg-[#F0E7D5]">
               Skip
             </button>
             <button
-              className="px-6 py-3 bg-[#FFBB33] text-[#151B28] rounded-full hover:bg-blue-600 shadow-md text-base"
+              className="px-6 py-3 bg-[#FFBB33] text-[#151B28] rounded-full hover:bg-blue-600 text-base"
               onClick={onNext}
             >
-              Next question
+              Next question →
               <span className="ml-2">→</span>
             </button>
           </div>

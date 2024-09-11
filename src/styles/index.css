@@ -169,3 +169,8 @@ button:focus-visible {
 }
 
 
+button[aria-label="Close"] {
+  background-color: red !important; 
+  color: white !important;
+  border: none !important;
+}
