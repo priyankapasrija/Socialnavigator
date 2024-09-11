@@ -31,13 +31,14 @@ body {
 
 .cs-message__content {
   font-family: 'Lexend', sans-serif;
+  font-size: 1em;
   background-color: #CCD4FF;
 }
 
 .cs-message--outgoing .cs-message__content {
   font-family: 'Lexend', sans-serif;
   background-color: white;
-  border:0.5px solid black;
+  border:none;
 }
 
 .cs-message__html-content {

@@ -18,7 +18,7 @@ const SelectionThree = () => {
 
         <button
           onClick={nextQuestion}
-          className="px-6 py-2 bg-#FFBB33-500 text-#151B28 rounded-full hover:bg-blue-600"
+          className="px-6 py-3 shadow-md bg-#FFBB33-500 text-#151B28 rounded-full hover:bg-blue-600"
         >
           Start exploring
         </button>

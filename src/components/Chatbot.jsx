@@ -146,7 +146,7 @@ function Chatbot() {
                   <button
                     key={index}
                     onClick={() => handleOptionClick(option)}
-                    className={`text-black text-xs p-2 rounded-lg border-solid border-1 border-black mt-2 mr-2 ${
+                    className={`text-black text-sm shadow-md p-2 rounded-lg mt-2 mr-2 hover:bg-blue-500 hover:border-none ${
                       option === 'Skip' ? '!bg-[#F0E7D5] hover:bg-yellow-400 ' : 'bg-[#FFBB33] hover:bg-yellow-400'
                     } ${
                       option === 'Edit message' ? '!bg-white hover:bg-yellow-400 !px-6 !py-3 !rounded-full' : 'bg-[#FFBB33] hover:bg-yellow-400'
@@ -155,7 +155,7 @@ function Chatbot() {
                       option === 'Submit your story' ? '!bg-[#FFBB33] !hover:bg-blue-600 !px-6 !py-3 !rounded-full' : 'bg-[#FFBB33] hover:bg-yellow-400'
                     }  
                     ${
-                      option === 'Tell another story' ? '!bg-white !hover:bg-blue-600 !px-6 !py-3 !rounded-full' : 'bg-[#FFBB33] hover:bg-yellow-400'
+                      option === 'Tell another story' ? '!bg-[#FFBB33]!hover:bg-blue-600 !px-6 !py-3 !rounded-full' : 'bg-[#FFBB33] hover:bg-yellow-400'
                     }  `
                   }
                   >

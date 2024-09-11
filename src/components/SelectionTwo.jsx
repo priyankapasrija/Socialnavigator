@@ -46,11 +46,11 @@ const SelectionTwo = ({onNext}) => {
 
         {selectedOption && (
           <div className="flex justify-between items-center mt-6">
-            <button className="text-base text-gray-600 text-black hover:text-gray-800 !bg-[#F0E7D5]">
+            <button className="text-base rounded-full text-black hover:text-gray-800 px-6 py-3 !bg-[#F0E7D5] !shadow-md">
               Skip
             </button>
             <button
-              className="px-6 py-3 bg-[#FFBB33] text-[#151B28] rounded-full hover:bg-blue-600 text-base"
+              className="px-6 py-3 bg-[#FFBB33] text-[#151B28] rounded-full hover:bg-blue-600 text-base !shadow-md"
               onClick={onNext}
             >
               Next question 

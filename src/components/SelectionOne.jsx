@@ -73,7 +73,7 @@ const SelectionOne = ({onNext}) => {
           <div className="flex justify-end mt-6">
             <button
               onClick={onNext}
-              className="px-6 py-2 bg-#FFBB33-500 text-#151B28 rounded-full hover:bg-blue-600"
+              className="px-6 py-2 bg-#FFBB33-500 !shadow-md text-#151B28 rounded-full hover:bg-blue-600"
             >
               Next Question
               <span className="ml-2">→</span>
