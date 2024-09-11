@@ -11,7 +11,7 @@ const WelcomeToSN = ({onNext}) => {
   return (
    //<div className="flex flex-col items-start justify-center min-h-screen bg-[#FEF8EB]">
   
-      <div className="p-6 bg-white rounded-lg text-left  max-w-xl">
+      <div className="p-10 bg-[#FEF8EB] rounded-lg text-left  max-w-xl">
       
       
       <h1 className="text-4xl font-bold mb-6">

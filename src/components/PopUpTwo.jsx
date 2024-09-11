@@ -15,7 +15,7 @@ export default function PopUpTwo() {
         onPress={onOpen} 
         className="!px-8 !py-4 !bg-yellow !text-#151B28 !rounded-full !hover:bg-blue-600 !shadow-md"
       >
-        Tell another story2
+        Tell another story
       </Button>
       <Modal 
         isOpen={isOpen} 

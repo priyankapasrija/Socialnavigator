@@ -17,7 +17,7 @@ function NewStoryAlert() {
 
   return (
    // <div className="flex flex-col items-start justify-center min-h-screen bg-[#FEF8EB]">
-      <div className="p-6 bg-white  rounded-lg text-left max-w-xl">
+      <div className="p-10 bg-[#FEF8EB] rounded-lg text-left max-w-xl">
         <h2 className="text-2xl font-semibold mb-4">Heads Up!</h2>
         <p className="text-gray-600 mb-4">
           If you <strong>start a new story</strong> now, the one you’re currently working on and its review will be cleared.

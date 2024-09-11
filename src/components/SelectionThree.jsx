@@ -8,7 +8,7 @@ const SelectionThree = () => {
   };
   return (
     //<div className="flex flex-col items-start justify-center min-h-screen bg-[#FEF8EB]">
-    <div className="p-6 bg-white rounded-lg text-left max-w-xl">
+    <div className="p-10 bg-[#FEF8EB] rounded-lg text-left max-w-xl">
         <h1 className="text-3xl font-semibold mb-4">Thank you!</h1>
         <p className="text-lg  mb-6 text-gray-600">
           Your responses will help us create a more personalized and supportive
