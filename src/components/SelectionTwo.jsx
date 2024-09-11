@@ -32,7 +32,7 @@ const SelectionTwo = ({onNext}) => {
           {options.map((option, index) => (
             <button
               key={index}
-              className={`px-4 py-2 rounded-full border text-base font-medium transition-all shadow-md ${
+              className={`px-4 py-2 rounded-full border text-base  transition-all shadow-md ${
                 selectedOption === option
                   ? "bg-black text-white"
                   : "bg-white text-gray-800 border-gray-300 hover:bg-[#FFBB33] hover:text-[#151B28]"
@@ -50,7 +50,7 @@ const SelectionTwo = ({onNext}) => {
               Skip
             </button>
             <button
-              className="px-6 py-3 bg-[#FFBB33] text-[#151B28] rounded-full hover:bg-blue-600 text-base !shadow-md"
+              className="px-6 py-3 bg-[#FFBB33] text-[#151B28] rounded-full hover:bg-blue-600 text-base !shadow-md font-medium"
               onClick={onNext}
             >
               Next question 

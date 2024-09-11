@@ -23,7 +23,7 @@ const WelcomeToSN = ({onNext}) => {
         </h2>
         <button
           onClick={onNext}
-          className="px-6 py-3 bg-[#FFBB33] text-[#151B28] rounded-full hover:bg-blue-600 mb-4 shadow-md"
+          className="px-6 py-3 bg-[#FFBB33] text-[#151B28] rounded-full hover:bg-blue-600 mb-4 shadow-md font-medium"
         >
           Get started
         </button>

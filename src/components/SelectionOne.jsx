@@ -34,7 +34,7 @@ const SelectionOne = ({onNext}) => {
         <h1 className="text-2xl font-semibold mb-4">
           Do you identify as neurodivergent?
         </h1>
-        <p className="text-gray-600 mb-4">
+        <p className="text-black mb-4">
           (Select all that apply or choose 'No' or 'Prefer not to say')
         </p>
 
@@ -73,7 +73,7 @@ const SelectionOne = ({onNext}) => {
           <div className="flex justify-end mt-6">
             <button
               onClick={onNext}
-              className="px-6 py-3 bg-#FFBB33-500 !shadow-md text-#151B28 rounded-full hover:bg-blue-600"
+              className="px-6 py-3 bg-[#FFBB33] !shadow-md text-[#151B28] rounded-full hover:bg-blue-600 font-medium"
             >
               Next Question
               <span className="ml-2">→</span>

@@ -28,7 +28,7 @@ const Home = () => {
      
         <PopUp/>
      
-      <p className='text-sm mt-6'>– No Registration Needed</p>
+      <p className='text-xs text-gray-500 mt-4'>*No Registration Needed</p>
     </div>
     <img src={Navigation} alt="navigation drawing" className='w-1/5 h-100 mr-20' />
     </div>

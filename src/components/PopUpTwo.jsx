@@ -22,6 +22,7 @@ export default function PopUpTwo() {
         onOpenChange={onClose} 
         isDismissable={false} 
         isKeyboardDismissDisabled={false}
+        classNames={{base:'bg-[#FEF8EB]'}}
       >
         <ModalContent>
           <ModalBody>
