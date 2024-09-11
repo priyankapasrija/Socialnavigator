@@ -159,8 +159,19 @@ function Chatbot() {
               </div>
             )}
           </MessageList>     
-        <MessageInput placeholder="Type your situation here..." attachButton='false' onSend={handleSend} 
-        style={{backgroundColor:'white',borderRadius: '10px',border:'0.5px solid black', fontSize:'0.9rem'}} />
+          {!isReviewing && (
+  <MessageInput
+    placeholder="Type your response here"
+    onSend={(message) => handleSend(message)}
+    attachButton={false}
+    style={{ 
+      backgroundColor: 'white', 
+      borderRadius: '10px', 
+      border: '0.5px solid black', 
+      fontSize: '0.9rem' 
+    }}
+  />
+)}
       </ChatContainer>
     </MainContainer>
     </div> 
