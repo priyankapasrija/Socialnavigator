@@ -29,13 +29,13 @@ function NewStoryAlert() {
           
           <button 
             onClick={handleStartNewStory} 
-            className="px-6 py-3 bg-[#FFBB33] text-[#151B28] rounded-full hover:bg-blue-600 shadow-md"
+            className="px-6 py-3 bg-[#FFBB33] text-[#151B28] rounded-full hover:bg-blue-600"
           >
             Start New Story
           </button>
           <button 
             onClick={handleSaveAndSignup} 
-            className="px-6 py-3 bg-[#FFBB33] text-[#151B28] rounded-full hover:bg-blue-600 shadow-md"
+            className="px-6 py-3 bg-[#FFBB33] text-[#151B28] rounded-full hover:bg-blue-600"
           >
             Save & Sign Up
           </button>
